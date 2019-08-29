@@ -2,7 +2,7 @@
 
 把iconfont图标批量转换成微信小程序的组件。不依赖字体，支持多色彩。
 
-![](https://github.com/fwh1990/mini-program-iconfont-cli/blob/master/images/multi-color-icon.png?raw=true)
+![](https://github.com/fwh1990/mini-program-iconfont-cli/blob/master/images/multi-color-icon.jpg?raw=true)
 
 
 # 特性
