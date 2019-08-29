@@ -1,0 +1,29 @@
+Component({
+  properties: {
+    // #names#
+    name: {
+      type: String,
+    },
+    size: {
+      type: Number,
+      value: #size#,
+    },
+    // string || string[]
+    color: {
+      type: null,
+    },
+  },
+  data: {
+    colorIsString: false,
+  },
+  attached: function() {
+    this.setData({
+      colorIsString: typeof this.properties.color === 'string',
+    });
+  },
+  moved: function() {
+    this.setData({
+      colorIsString: typeof this.properties.color === 'string',
+    });
+  },
+})
