@@ -75,7 +75,7 @@ npx iconfont
 ```json
 {
     "usingComponents": {
-        "iconfont": "./iconfont"
+        "iconfont": "./iconfont/iconfont"
     }
 }
 ```
