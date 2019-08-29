@@ -100,6 +100,11 @@ npx iconfont
 # 修改 symbol_url 配置后执行：
 ./node_modules/.bin/iconfont
 ```
+
+# 扩展链接
+
+React-Native：[react-native-iconfont-cli](https://github.com/fwh1990/react-native-iconfont-cli)
+
 --------
 
 欢迎使用，并给我一些反馈和建议，让这个库做的更好
