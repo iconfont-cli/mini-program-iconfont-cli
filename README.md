@@ -92,6 +92,9 @@ npx iconfont
 
 // 多色：红色+橘色
 <iconfont name="alipay" color="{{['red', 'orange']}}" size="300" />
+
+// 不同格式的颜色写法
+<iconfont name="alipay" color="{{['#333', 'rgb(50, 124, 39)']}}" />
 ```
 
 # 更新图标

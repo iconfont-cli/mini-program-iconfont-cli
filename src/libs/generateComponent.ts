@@ -16,7 +16,9 @@ import {
 const ATTRIBUTE_FILL_MAP = ['path'];
 
 export const generateComponent = (data: XmlData, config: Config) => {
-  const svgTemplates: string[] = [];
+  const svgTemplates: string[] = [
+    '<wxs src="./iconfont.wxs" module="helper" />\n',
+  ];
   const names: string[] = [];
   const saveDir = path.resolve(config.save_dir);
   const fileName = basename(config.save_dir) || 'iconfont';
@@ -53,6 +55,7 @@ export const generateComponent = (data: XmlData, config: Config) => {
 
   fs.writeFileSync(path.join(saveDir, fileName + '.js'), jsFile);
   fs.writeFileSync(path.join(saveDir, fileName + '.json'), getTemplate('icon.json'));
+  fs.writeFileSync(path.join(saveDir, fileName + '.wxs'), getTemplate('icon.wxs'));
 
   console.log(`\n${colors.green('√')} All icons have been putted into dir: ${colors.green(config.save_dir)}\n`);
 };
@@ -97,8 +100,7 @@ const addAttribute = (domName: string, sub: XmlData['svg']['symbol'][number]['pa
       if (attributeName === 'fill') {
         const color = replaceHexToRgb(sub.$[attributeName]);
 
-        template += ` ${attributeName}='{{colorIsString ? color || '${color}' : color[${counter.colorIndex}] || '${color}'}}'`;
-        //template += ` ${attributeName}='{{typeof color == 'string' ? color : color[${counter.colorIndex}] || '${color}'}}'`;
+        template += ` ${attributeName}='{{helper.getColor(colors, ${counter.colorIndex}, '${color}')}}'`;
         counter.colorIndex += 1;
       } else {
         template += ` ${attributeName}='${sub.$[attributeName]}'`;
