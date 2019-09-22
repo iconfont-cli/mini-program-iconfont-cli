@@ -69,6 +69,10 @@ npx iconfont
 ```
 生成后查看您设置的保存目录中是否含有所有的图标
 
+-------
+
+在生成代码之前，你可以顺便参考[snapshots目录](https://github.com/fwh1990/mini-program-iconfont-cli/tree/master/snapshots)自动生成的快照文件。
+
 
 # Step 4
 在根目录 `app.json` 中引入全局图标组件

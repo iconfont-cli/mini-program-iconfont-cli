@@ -2,5 +2,4 @@ node_modules/
 *.log
 .idea/
 build/
-src/iconfont
-./iconfont.json
+/iconfont.json
