@@ -14,7 +14,10 @@
   "author": "范文华 <531362022@qq.com>",
   "license": "MIT",
   "bin": {
-    "iconfont": "./index.js"
+    "iconfont": "./commands/help.js",
+    "iconfont-init": "./commands/createJson.js",
+    "iconfont-wechat": "./commands/createWechatIcon.js",
+    "iconfont-alipay": "./commands/createAlipayIcon.js"
   },
   "dependencies": {
     "axios": "^0.19.0",

@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
-cp -f ./scripts/iconfont.json ./
-ts-node src/index.ts
+cp -f ./scripts/config/wechat.json ./iconfont.json
+ts-node src/commands/createWechatIcon.ts
+
+cp -f ./scripts/config/alipay.json ./iconfont.json
+ts-node src/commands/createAlipayIcon.ts

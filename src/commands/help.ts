@@ -1,12 +1,11 @@
 import colors from 'colors';
 
-export const renderHelp = () => {
-  console.log([
-    '',
-    'Usage:',
-    '',
-    '    ' + colors.yellow('iconfont init') + '       : generate config file',
-    '    ' + colors.yellow('iconfont') + '            : generate icon components',
-    '',
-  ].join('\n'));
-};
+console.log([
+  '',
+  'Usage:',
+  '',
+  '    ' + colors.green('npx iconfont-init') + '     : generate config file',
+  '    ' + colors.green('npx iconfont-wechat') + '   : generate wechat icon component',
+  '    ' + colors.green('npx iconfont-alipay') + '   : generate alipay icon component',
+  '',
+].join('\n'));

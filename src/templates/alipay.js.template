@@ -1,0 +1,12 @@
+Component({
+  props: {
+    // #names#
+    name: null,
+    // string | string[]
+    color: '',
+    size: #size#,
+  },
+  data: {
+    quot: '"',
+  },
+});

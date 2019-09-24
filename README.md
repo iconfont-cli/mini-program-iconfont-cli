@@ -1,9 +1,13 @@
 # mini-program-iconfont-cli
 
-把iconfont图标批量转换成微信小程序的组件。不依赖字体，支持多色彩。
+把iconfont图标批量转换成多个平台小程序的组件。不依赖字体，支持多色彩。
 
 ![](https://github.com/fwh1990/mini-program-iconfont-cli/blob/master/images/multi-color-icon.jpg?raw=true)
 
+
+# 支持平台：
+>- 微信小程序
+>- 支付宝小程序
 
 # 特性
 
@@ -30,7 +34,7 @@ npm install mini-program-iconfont-cli --save-dev
 # Step 2
 生成配置文件
 ```bash
-npx iconfont init
+npx iconfont-init
 ```
 此时项目根目录会生成一个`iconfont.json`的文件，内容如下：
 ```json
@@ -65,7 +69,11 @@ npx iconfont init
 # Step 3
 开始生成小程序组件
 ```bash
-npx iconfont
+# 微信小程序
+npx iconfont-wechat
+
+# 支付宝小程序
+npx iconfont-alipay
 ```
 生成后查看您设置的保存目录中是否含有所有的图标
 
@@ -75,15 +83,27 @@ npx iconfont
 
 
 # Step 4
-在根目录 `app.json` 中引入全局图标组件
-```json
+#### 微信小程序
+在根目录 的文件`app.json`中引入全局图标组件，避免每个page都引入（麻烦）
+```json5
+// 注意是：相对路径
 {
     "usingComponents": {
         "iconfont": "./iconfont/iconfont"
     }
 }
 ```
-如果你不想全局引入，也可以在各自的page页面分别引入（好麻烦呢）
+
+#### 支付宝小程序
+不支持全局引入，您需要在各自的page中引入。
+```json5
+// 注意是：绝对路径
+{
+  "usingComponents": {
+    "my-component": "/iconfont/iconfont"
+  }
+}
+```
 
 # 使用
 在page中使用图标
@@ -105,7 +125,12 @@ npx iconfont
 当您在iconfont.cn中的图标有变更时，只需更改配置`symbol_url`，然后再次执行`Step 3`即可生成最新的图标组件
 ```bash
 # 修改 symbol_url 配置后执行：
-npx iconfont
+
+# 微信小程序
+npx iconfont-wechat
+
+# 支付宝小程序
+npx iconfont-alipay
 ```
 
 # 扩展链接

@@ -15,14 +15,13 @@ import {
 
 const ATTRIBUTE_FILL_MAP = ['path'];
 
-export const generateComponent = (data: XmlData, config: Config) => {
-  const svgTemplates: string[] = [
-    '<wxs src="./iconfont.wxs" module="helper" />\n',
-  ];
+export const generateWechatComponent = (data: XmlData, config: Config) => {
+  const svgTemplates: string[] = [];
   const names: string[] = [];
   const saveDir = path.resolve(config.save_dir);
   const fileName = basename(config.save_dir) || 'iconfont';
 
+  svgTemplates.push(`<wxs src="./${fileName}.wxs" module="helper" />\n`);
   mkdirp.sync(saveDir);
   glob.sync(path.join(saveDir, '*')).forEach((file) => fs.unlinkSync(file));
 
@@ -35,7 +34,7 @@ export const generateComponent = (data: XmlData, config: Config) => {
     names.push(iconIdAfterTrim);
     svgTemplates.push(
       `<!--${iconIdAfterTrim}-->\n<view wx:if="{{name === '${iconIdAfterTrim}'}}" style="background-image: url(\\"data:image/svg+xml, ${generateCase(item)}\\");` +
-      'width: {{size}}; height: {{size}}; background-repeat: no-repeat;" />'
+      ' width: {{size}}; height: {{size}}; background-repeat: no-repeat;" />'
     );
 
     console.log(`${colors.green('√')} Generated icon "${colors.yellow(iconId)}"`);
@@ -48,14 +47,14 @@ export const generateComponent = (data: XmlData, config: Config) => {
       .join('\n\n')
       .replace(/{{size}}/g, (value) => value + (config.use_rpx ? 'rpx' : 'px')));
 
-  let jsFile = getTemplate('icon.js');
+  let jsFile = getTemplate('wechat.js');
 
   jsFile = replaceSize(jsFile, config.default_icon_size);
   jsFile = replaceNames(jsFile, names);
 
   fs.writeFileSync(path.join(saveDir, fileName + '.js'), jsFile);
-  fs.writeFileSync(path.join(saveDir, fileName + '.json'), getTemplate('icon.json'));
-  fs.writeFileSync(path.join(saveDir, fileName + '.wxs'), getTemplate('icon.wxs'));
+  fs.writeFileSync(path.join(saveDir, fileName + '.json'), getTemplate('wechat.json'));
+  fs.writeFileSync(path.join(saveDir, fileName + '.wxs'), getTemplate('wechat.wxs'));
 
   console.log(`\n${colors.green('√')} All icons have been putted into dir: ${colors.green(config.save_dir)}\n`);
 };

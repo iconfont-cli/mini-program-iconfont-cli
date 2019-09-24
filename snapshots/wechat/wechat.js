@@ -1,12 +1,8 @@
 Component({
   properties: {
-    // #names#
+    // alipay | user | setup
     name: {
       type: String,
-    },
-    size: {
-      type: Number,
-      value: #size#,
     },
     // string | string[]
     color: {
@@ -18,7 +14,11 @@ Component({
           });
         }
       }
-    }
+    },
+    size: {
+      type: Number,
+      value: 20,
+    },
   },
   data: {
     colors: ''
