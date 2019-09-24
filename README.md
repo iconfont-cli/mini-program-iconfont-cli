@@ -43,7 +43,7 @@ npx iconfont-init
   "symbol_url": "请参考README.md，复制 http://iconfont.cn 官网提供的JS链接",
   "save_dir": "./iconfont",
   "use_rpx": false,
-  "trim_icon_prefix": "icon-",
+  "trim_icon_prefix": "icon",
   "default_icon_size": 18
 }
 ```
