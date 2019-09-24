@@ -7,5 +7,6 @@ console.log([
   '    ' + colors.green('npx iconfont-init') + '     : generate config file',
   '    ' + colors.green('npx iconfont-wechat') + '   : generate wechat icon component',
   '    ' + colors.green('npx iconfont-alipay') + '   : generate alipay icon component',
+  '    ' + colors.green('npx iconfont-baidu') + '    : generate baidu icon component',
   '',
 ].join('\n'));

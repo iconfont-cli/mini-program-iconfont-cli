@@ -4,11 +4,12 @@
   "main": "index.js",
   "keywords": [
     "mini-program",
-    "wechat",
     "iconfont",
-    "weixin",
     "iconfont-cli",
-    "xiaochengxu"
+    "xiaochengxu",
+    "wechat-program",
+    "alipay-program",
+    "baidu-program"
   ],
   "repository": "git@github.com:fwh1990/mini-program-iconfont-cli.git",
   "author": "范文华 <531362022@qq.com>",

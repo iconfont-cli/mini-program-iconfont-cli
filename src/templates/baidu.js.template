@@ -1,0 +1,20 @@
+Component({
+  properties: {
+    // #names#
+    name: {
+      type: String,
+    },
+    // string | string[]
+    color: {
+      type: null,
+      value: '',
+    },
+    size: {
+      type: Number,
+      value: #size#,
+    },
+  },
+  data: {
+    quot: '"',
+  },
+});
