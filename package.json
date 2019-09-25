@@ -18,7 +18,8 @@
     "iconfont": "./commands/help.js",
     "iconfont-init": "./commands/createJson.js",
     "iconfont-wechat": "./commands/createWechatIcon.js",
-    "iconfont-alipay": "./commands/createAlipayIcon.js"
+    "iconfont-alipay": "./commands/createAlipayIcon.js",
+    "iconfont-baidu": "./commands/createBaiduIcon.js"
   },
   "dependencies": {
     "axios": "^0.19.0",
