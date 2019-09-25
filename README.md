@@ -22,6 +22,13 @@
 <br />
 4、图标颜色可定制
 
+
+# 扩展
+|平台|库|
+|----|---|
+|Taro|[taro-iconfont-cli](https://github.com/fwh1990/taro-iconfont-cli)|
+|React Native|[react-native-iconfont-cli](https://github.com/fwh1990/react-native-iconfont-cli)|
+
 # Step 1
 安装插件
 ```bash
@@ -143,10 +150,6 @@ npx iconfont-alipay
 # 百度小程序
 npx iconfont-baidu
 ```
-
-# 扩展链接
-
-React-Native：[react-native-iconfont-cli](https://github.com/fwh1990/react-native-iconfont-cli)
 
 --------
 
