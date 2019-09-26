@@ -28,6 +28,7 @@
 |----|---|
 |Taro|[taro-iconfont-cli](https://github.com/fwh1990/taro-iconfont-cli)|
 |React Native|[react-native-iconfont-cli](https://github.com/fwh1990/react-native-iconfont-cli)|
+|React 网页|[react-iconfont-cli](https://github.com/fwh1990/react-iconfont-cli)|
 
 # Step 1
 安装插件
@@ -79,7 +80,7 @@ npx iconfont-init
 我们将为每个生成的图标组件加入默认的字体大小，当然，你也可以通过传入props的方式改变这个size值。
 
 # Step 3
-开始生成小程序组件
+开始生成小程序标准组件
 ```bash
 # 微信小程序
 npx iconfont-wechat
