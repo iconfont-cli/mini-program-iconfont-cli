@@ -11,5 +11,6 @@ console.log([
   '    ' + colors.green('npx iconfont-alipay') + '   : generate alipay icon component',
   '    ' + colors.green('npx iconfont-baidu') + '    : generate baidu icon component',
   '    ' + colors.green('npx iconfont-toutiao') + '  : generate toutiao icon component',
+  '    ' + colors.green('npx iconfont-qq') + '       : generate qq icon component',
   '',
 ].join('\n'));

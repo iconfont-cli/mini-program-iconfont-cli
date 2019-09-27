@@ -10,6 +10,7 @@
 >- 支付宝小程序
 >- 百度小程序
 >- 头条小程序（字节跳动）
+>- QQ小程序
 
 # 特性
 
@@ -86,6 +87,9 @@ npx iconfont-baidu
 
 # 头条小程序
 npx iconfont-toutiao
+
+# QQ小程序
+npx iconfont-qq
 ```
 生成后查看您设置的保存目录中是否含有所有的图标
 
@@ -95,13 +99,13 @@ npx iconfont-toutiao
 
 
 # Step 4
-#### 微信小程序
+#### 微信小程序 | QQ小程序
 在根目录 的`app.json`文件中引入全局图标组件，避免每个page都引入（麻烦）
 ```json5
-// 注意是：相对路径
+// 绝对路径
 {
     "usingComponents": {
-        "iconfont": "./iconfont/iconfont"
+        "iconfont": "/iconfont/iconfont"
     }
 }
 ```
@@ -109,7 +113,7 @@ npx iconfont-toutiao
 #### 支付宝小程序 | 百度小程序 | 头条小程序
 不支持全局引入，您需要在各自的page的`.json`文件中引入。
 ```json5
-// 注意是：绝对路径
+// 绝对路径
 {
   "usingComponents": {
     "my-component": "/iconfont/iconfont"
@@ -149,6 +153,9 @@ npx iconfont-baidu
 
 # 头条小程序
 npx iconfont-toutiao
+
+# QQ小程序
+npx iconfont-qq
 ```
 
 
