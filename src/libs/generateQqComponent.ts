@@ -57,7 +57,6 @@ export const generateQqComponent = (data: XmlData, config: Config) => {
 
   fs.writeFileSync(path.join(saveDir, fileName + '.js'), jsFile);
   fs.writeFileSync(path.join(saveDir, fileName + '.json'), getTemplate('qq.json'));
-  fs.writeFileSync(path.join(saveDir, fileName + '.qs'), getTemplate('qq.qs'));
 
   console.log(`\n${colors.green('√')} All icons have been putted into dir: ${colors.green(config.save_dir)}\n`);
 };
