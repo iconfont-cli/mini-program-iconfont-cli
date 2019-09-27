@@ -63,10 +63,6 @@ npx iconfont-init
 ### use_rpx
 是否使用微信提供的[尺寸单位rpx](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxss.html#%E5%B0%BA%E5%AF%B8%E5%8D%95%E4%BD%8D)还是普通的像素单位`px`。默认值为false，即使用`px`
 
-------
-
-**注意：** 百度小程序暂时不支持`rpx`格式。
-
 ### trim_icon_prefix
 如果你的图标有通用的前缀，而你在使用的时候又不想重复去写，那么可以通过这种配置这个选项把前缀统一去掉。
 

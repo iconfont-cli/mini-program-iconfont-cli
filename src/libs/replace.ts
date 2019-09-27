@@ -26,3 +26,7 @@ export const replaceHexToRgb = (hex) => {
 
   return 'rgb(' + rgb.join(',') + ')';
 };
+
+export const replaceIsRpx = (content: string, useRpx: boolean) => {
+  return content.replace(/#rpx#/g, useRpx ? 'true' : 'false');
+};

@@ -7,7 +7,7 @@ import { XmlData } from './fetchXml';
 import { Config } from './getConfig';
 import { getTemplate } from './getTemplate';
 import {
-  replaceHexToRgb,
+  replaceHexToRgb, replaceIsRpx,
   replaceNames,
   replaceSize,
 } from './replace';
@@ -47,14 +47,13 @@ export const generateBaiduComponent = (data: XmlData, config: Config) => {
     path.join(saveDir, fileName + '.swan'),
     svgTemplates
       .join('\n\n')
-      // FIXME: svg unit doesn't support rpx or vw in baidu program
-      // .replace(/{{size}}/g, (value) => value + (config.use_rpx ? 'rpx' : 'px')));
-      .replace(/{{size}}/g, (value) => value + 'px'));
+      .replace(/{{size}}/g, (value) => value + (config.use_rpx ? 'rpx' : 'px'));
 
   let jsFile = getTemplate('baidu.js');
 
   jsFile = replaceSize(jsFile, config.default_icon_size);
   jsFile = replaceNames(jsFile, names);
+  jsFile = replaceIsRpx(jsFile, config.use_rpx);
 
   fs.writeFileSync(path.join(saveDir, fileName + '.js'), jsFile);
   fs.writeFileSync(path.join(saveDir, fileName + '.json'), getTemplate('baidu.json'));
@@ -64,7 +63,7 @@ export const generateBaiduComponent = (data: XmlData, config: Config) => {
 };
 
 const generateCase = (data: XmlData['svg']['symbol'][number]) => {
-  let template = `<svg viewBox='${data.$.viewBox}' xmlns='http://www.w3.org/2000/svg' width='{{size}}' height='{{size}}'>`;
+  let template = `<svg viewBox='${data.$.viewBox}' xmlns='http://www.w3.org/2000/svg' width='{{svgSize}}px' height='{{svgSize}}px'>`;
 
   for (const domName of Object.keys(data)) {
     if (domName === '$') {

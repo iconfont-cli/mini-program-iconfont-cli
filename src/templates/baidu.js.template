@@ -12,9 +12,15 @@ Component({
     size: {
       type: Number,
       value: #size#,
+      observer: function(size) {
+        this.setData({
+          svgSize: #rpx# ? size / 750 * swan.getSystemInfoSync().windowWidth : size,
+        });
+      },
     },
   },
   data: {
     quot: '"',
+    svgSize: #rpx# ? #size# / 750 * swan.getSystemInfoSync().windowWidth : #size#,
   },
 });

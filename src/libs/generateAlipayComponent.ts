@@ -7,7 +7,7 @@ import { XmlData } from './fetchXml';
 import { Config } from './getConfig';
 import { getTemplate } from './getTemplate';
 import {
-  replaceHexToRgb,
+  replaceHexToRgb, replaceIsRpx,
   replaceNames,
   replaceSize,
 } from './replace';
@@ -53,6 +53,7 @@ export const generateAlipayComponent = (data: XmlData, config: Config) => {
 
   jsFile = replaceSize(jsFile, config.default_icon_size);
   jsFile = replaceNames(jsFile, names);
+  jsFile = replaceIsRpx(jsFile, config.use_rpx);
 
   fs.writeFileSync(path.join(saveDir, fileName + '.js'), jsFile);
   fs.writeFileSync(path.join(saveDir, fileName + '.json'), getTemplate('alipay.json'));
@@ -62,7 +63,7 @@ export const generateAlipayComponent = (data: XmlData, config: Config) => {
 };
 
 const generateCase = (data: XmlData['svg']['symbol'][number]) => {
-  let template = `<svg viewBox='${data.$.viewBox}' xmlns='http://www.w3.org/2000/svg' width='{{size}}' height='{{size}}'>`;
+  let template = `<svg viewBox='${data.$.viewBox}' xmlns='http://www.w3.org/2000/svg' width='{{svgSize}}px' height='{{svgSize}}px'>`;
 
   for (const domName of Object.keys(data)) {
     if (domName === '$') {
