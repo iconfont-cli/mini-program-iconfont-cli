@@ -9,7 +9,8 @@
     "xiaochengxu",
     "wechat-program",
     "alipay-program",
-    "baidu-program"
+    "baidu-program",
+    "toutiao-program"
   ],
   "repository": "git@github.com:fwh1990/mini-program-iconfont-cli.git",
   "author": "范文华 <531362022@qq.com>",
@@ -19,7 +20,8 @@
     "iconfont-init": "./commands/createJson.js",
     "iconfont-wechat": "./commands/createWechatIcon.js",
     "iconfont-alipay": "./commands/createAlipayIcon.js",
-    "iconfont-baidu": "./commands/createBaiduIcon.js"
+    "iconfont-baidu": "./commands/createBaiduIcon.js",
+    "iconfont-toutiao": "./commands/createToutiaoIcon.js"
   },
   "dependencies": {
     "axios": "^0.19.0",

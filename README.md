@@ -9,6 +9,7 @@
 >- 微信小程序
 >- 支付宝小程序
 >- 百度小程序
+>- 头条小程序（字节跳动）
 
 # 特性
 
@@ -82,6 +83,9 @@ npx iconfont-alipay
 
 # 百度小程序
 npx iconfont-baidu
+
+# 头条小程序
+npx iconfont-toutiao
 ```
 生成后查看您设置的保存目录中是否含有所有的图标
 
@@ -102,7 +106,7 @@ npx iconfont-baidu
 }
 ```
 
-#### 支付宝小程序 | 百度小程序
+#### 支付宝小程序 | 百度小程序 | 头条小程序
 不支持全局引入，您需要在各自的page的`.json`文件中引入。
 ```json5
 // 注意是：绝对路径
@@ -142,6 +146,9 @@ npx iconfont-alipay
 
 # 百度小程序
 npx iconfont-baidu
+
+# 头条小程序
+npx iconfont-toutiao
 ```
 
 
