@@ -148,10 +148,10 @@ npx iconfont-baidu
 # 扩展
 |平台|库|
 |----|---|
-|Taro|[taro-iconfont-cli](https://github.com/fwh1990/taro-iconfont-cli)|
-|React Native|[react-native-iconfont-cli](https://github.com/fwh1990/react-native-iconfont-cli)|
-|React H5|[react-iconfont-cli](https://github.com/fwh1990/react-iconfont-cli)|
-|Flutter|[flutter-iconfont-cli](https://github.com/fwh1990/flutter-iconfont-cli)|
+|Taro|[taro-iconfont-cli](https://github.com/iconfont-cli/taro-iconfont-cli)|
+|React Native|[react-native-iconfont-cli](https://github.com/iconfont-cli/react-native-iconfont-cli)|
+|React H5|[react-iconfont-cli](https://github.com/iconfont-cli/react-iconfont-cli)|
+|Flutter|[flutter-iconfont-cli](https://github.com/iconfont-cli/flutter-iconfont-cli)|
 
 --------
 
