@@ -48,7 +48,8 @@ export const generateWechatComponent = (data: XmlData, config: Config) => {
     path.join(saveDir, fileName + '.wxml'),
     svgTemplates
       .join('\n\n')
-      .replace(/{{size}}/g, (value) => value + (config.use_rpx ? 'rpx' : 'px')));
+      .replace(/{{size}}/g, (value) => value + (config.use_rpx ? 'rpx' : 'px'))
+  );
 
   let jsFile = getTemplate('wechat.js');
 

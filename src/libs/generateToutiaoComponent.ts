@@ -48,7 +48,8 @@ export const generateToutiaoComponent = (data: XmlData, config: Config) => {
     path.join(saveDir, fileName + '.ttml'),
     svgTemplates
       .join('\n\n')
-      .replace(/{{size}}/g, (value) => value + (config.use_rpx ? 'rpx' : 'px')));
+      .replace(/{{size}}/g, (value) => value + (config.use_rpx ? 'rpx' : 'px'))
+  );
 
   let jsFile = getTemplate('toutiao.js');
 

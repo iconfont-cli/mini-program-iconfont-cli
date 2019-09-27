@@ -49,7 +49,8 @@ export const generateQqComponent = (data: XmlData, config: Config) => {
     path.join(saveDir, fileName + '.qml'),
     svgTemplates
       .join('\n\n')
-      .replace(/{{size}}/g, (value) => value + (config.use_rpx ? 'rpx' : 'px')));
+      .replace(/{{size}}/g, (value) => value + (config.use_rpx ? 'rpx' : 'px'))
+  );
 
   let jsFile = getTemplate('qq.js');
 
