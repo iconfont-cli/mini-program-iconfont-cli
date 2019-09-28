@@ -28,5 +28,7 @@ export const replaceHexToRgb = (hex) => {
 };
 
 export const replaceIsRpx = (content: string, useRpx: boolean) => {
-  return content.replace(/#rpx#/g, useRpx ? 'true' : 'false');
+  return content
+    .replace(/#rpx-1:(.+?):#/g, useRpx ? '$1' : '')
+    .replace(/#rpx-0:(.+?):#/g, useRpx ? '' : '$1');
 };

@@ -18,13 +18,13 @@ Component({
       value: 24,
       observer: function(size) {
         this.setData({
-          svgSize: false ? size / 750 * qq.getSystemInfoSync().windowWidth : size,
+          svgSize: size,
         });
       },
     },
   },
   data: {
-    svgSize: false ? 24 / 750 * qq.getSystemInfoSync().windowWidth : 24,
+    svgSize: 24,
     quot: '"',
     colorIsString: false,
   },

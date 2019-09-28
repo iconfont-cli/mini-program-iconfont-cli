@@ -15,7 +15,7 @@ Component({
 
     if (size !== this.data.svgSize) {
       this.setData({
-        svgSize: false ? size / 750 * my.getSystemInfoSync().windowWidth : size
+        svgSize: size,
       });
     }
   },
@@ -24,7 +24,7 @@ Component({
 
     if (size !== prevProps.size) {
       this.setData({
-        svgSize: false ? size / 750 * my.getSystemInfoSync().windowWidth : size,
+        svgSize: size,
       });
     }
   },

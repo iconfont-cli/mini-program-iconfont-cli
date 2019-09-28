@@ -14,13 +14,13 @@ Component({
       value: 18,
       observer: function(size) {
         this.setData({
-          svgSize: false ? size / 750 * swan.getSystemInfoSync().windowWidth : size,
+          svgSize: size,
         });
       },
     },
   },
   data: {
     quot: '"',
-    svgSize: false ? 18 / 750 * swan.getSystemInfoSync().windowWidth : 18,
+    svgSize: 18,
   },
 });

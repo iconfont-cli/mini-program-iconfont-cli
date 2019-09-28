@@ -18,13 +18,13 @@ Component({
       value: #size#,
       observer: function(size) {
         this.setData({
-          svgSize: #rpx# ? size / 750 * qq.getSystemInfoSync().windowWidth : size,
+          svgSize: #rpx-1:size / 750 * qq.getSystemInfoSync().windowWidth:##rpx-0:size:#,
         });
       },
     },
   },
   data: {
-    svgSize: #rpx# ? #size# / 750 * qq.getSystemInfoSync().windowWidth : #size#,
+    svgSize: #rpx-1:#size# / 750 * qq.getSystemInfoSync().windowWidth:##rpx-0:#size#:#,
     quot: '"',
     colorIsString: false,
   },
