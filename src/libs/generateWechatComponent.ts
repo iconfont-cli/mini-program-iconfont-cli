@@ -37,13 +37,13 @@ export const generateWechatComponent = (data: XmlData, config: Config) => {
     names.push(iconIdAfterTrim);
     svgTemplates.push(
       `<!--${iconIdAfterTrim}-->\n<view wx:if="{{name === '${iconIdAfterTrim}'}}" style="background-image: url({{quot}}data:image/svg+xml, ${generateCase(item)}{{quot}});` +
-      ' width: {{size}}; height: {{size}}; background-repeat: no-repeat;" />'
+      ' width: {{size}}; height: {{size}}; " class="icon" />'
     );
 
     console.log(`${colors.green('√')} Generated icon "${colors.yellow(iconId)}"`);
   });
 
-  fs.writeFileSync(path.join(saveDir, fileName + '.wxss'), '');
+  fs.writeFileSync(path.join(saveDir, fileName + '.wxss'), getTemplate('wechat.wxss'));
   fs.writeFileSync(
     path.join(saveDir, fileName + '.wxml'),
     svgTemplates

@@ -1,0 +1,4 @@
+.icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+}

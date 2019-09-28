@@ -36,13 +36,13 @@ export const generateAlipayComponent = (data: XmlData, config: Config) => {
     names.push(iconIdAfterTrim);
     svgTemplates.push(
       `<!--${iconIdAfterTrim}-->\n<view a:if="{{name === '${iconIdAfterTrim}'}}" style="background-image: url({{quot}}data:image/svg+xml, ${generateCase(item)}{{quot}});` +
-      ' width: {{size}}; height: {{size}}; background-repeat: no-repeat;" />'
+      ' width: {{size}}; height: {{size}}; " class="icon" />'
     );
 
     console.log(`${colors.green('√')} Generated icon "${colors.yellow(iconId)}"`);
   });
 
-  fs.writeFileSync(path.join(saveDir, fileName + '.acss'), '');
+  fs.writeFileSync(path.join(saveDir, fileName + '.acss'), getTemplate('alipay.acss'));
   fs.writeFileSync(
     path.join(saveDir, fileName + '.axml'),
     svgTemplates
