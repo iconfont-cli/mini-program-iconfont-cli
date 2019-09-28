@@ -37,7 +37,7 @@ export const generateToutiaoComponent = (data: XmlData, config: Config) => {
     names.push(iconIdAfterTrim);
     svgTemplates.push(
       `<!--${iconIdAfterTrim}-->\n<view tt:if="{{name === '${iconIdAfterTrim}'}}" style="background-image: url({{quot}}data:image/svg+xml, ${generateCase(item)}{{quot}});` +
-      ' width: {{size}}; height: {{size}}; " class="icon" />'
+      ' width: {{svgSize}}px; height: {{svgSize}}px; " class="icon" />'
     );
 
     console.log(`${colors.green('√')} Generated icon "${colors.yellow(iconId)}"`);
@@ -46,9 +46,7 @@ export const generateToutiaoComponent = (data: XmlData, config: Config) => {
   fs.writeFileSync(path.join(saveDir, fileName + '.ttss'), getTemplate('toutiao.ttss'));
   fs.writeFileSync(
     path.join(saveDir, fileName + '.ttml'),
-    svgTemplates
-      .join('\n\n')
-      .replace(/{{size}}/g, (value) => value + (config.use_rpx ? 'rpx' : 'px'))
+    svgTemplates.join('\n\n')
   );
 
   let jsFile = getTemplate('toutiao.js');

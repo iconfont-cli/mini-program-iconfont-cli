@@ -38,7 +38,7 @@ export const generateQqComponent = (data: XmlData, config: Config) => {
     names.push(iconIdAfterTrim);
     svgTemplates.push(
       `<!--${iconIdAfterTrim}-->\n<view qq:if="{{name === '${iconIdAfterTrim}'}}" style="background-image: url({{quot}}data:image/svg+xml, ${generateCase(item)}{{quot}});` +
-      ' width: {{size}}; height: {{size}}; " class="icon" />'
+      ' width: {{svgSize}}px; height: {{svgSize}}px; " class="icon" />'
     );
 
     console.log(`${colors.green('√')} Generated icon "${colors.yellow(iconId)}"`);
@@ -47,9 +47,7 @@ export const generateQqComponent = (data: XmlData, config: Config) => {
   fs.writeFileSync(path.join(saveDir, fileName + '.qss'), getTemplate('qq.qss'));
   fs.writeFileSync(
     path.join(saveDir, fileName + '.qml'),
-    svgTemplates
-      .join('\n\n')
-      .replace(/{{size}}/g, (value) => value + (config.use_rpx ? 'rpx' : 'px'))
+    svgTemplates.join('\n\n')
   );
 
   let jsFile = getTemplate('qq.js');
