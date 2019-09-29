@@ -7,9 +7,10 @@ Component({
     // string | string[]
     color: {
       type: null,
-      observer: function() {
+      observer: function(color) {
         this.setData({
-          colors: this.fixColor()
+          colors: this.fixColor(),
+          isStr: typeof color === 'string',
         });
       }
     },
@@ -27,6 +28,7 @@ Component({
     colors: '',
     svgSize: #rpx-1:#size# / 750 * wx.getSystemInfoSync().windowWidth:##rpx-0:#size#:#,
     quot: '"',
+    isStr: true,
   },
   methods: {
     fixColor: function() {

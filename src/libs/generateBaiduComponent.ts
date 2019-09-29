@@ -7,7 +7,7 @@ import { XmlData } from './fetchXml';
 import { Config } from './getConfig';
 import { getTemplate } from './getTemplate';
 import {
-  replaceHexToRgb, replaceIsRpx,
+  replaceIsRpx,
   replaceNames,
   replaceSize,
 } from './replace';
@@ -20,7 +20,6 @@ export const generateBaiduComponent = (data: XmlData, config: Config) => {
   const saveDir = path.resolve(config.save_dir);
   const fileName = basename(config.save_dir) || 'iconfont';
 
-  svgTemplates.push(`<filter src="./${fileName}.filter.js" module="helper" />\n`);
   mkdirp.sync(saveDir);
   glob.sync(path.join(saveDir, '*')).forEach((file) => fs.unlinkSync(file));
 
@@ -56,7 +55,6 @@ export const generateBaiduComponent = (data: XmlData, config: Config) => {
 
   fs.writeFileSync(path.join(saveDir, fileName + '.js'), jsFile);
   fs.writeFileSync(path.join(saveDir, fileName + '.json'), getTemplate('baidu.json'));
-  fs.writeFileSync(path.join(saveDir, fileName + '.filter.js'), getTemplate('baidu.filter.js'));
 
   console.log(`\n${colors.green('√')} All icons have been putted into dir: ${colors.green(config.save_dir)}\n`);
 };
@@ -99,9 +97,9 @@ const addAttribute = (domName: string, sub: XmlData['svg']['symbol'][number]['pa
 
     for (const attributeName of Object.keys(sub.$)) {
       if (attributeName === 'fill') {
-        const color = replaceHexToRgb(sub.$[attributeName]);
+        const color = sub.$[attributeName];
 
-        template += ` ${attributeName}='{{helper.getColor(color, ${counter.colorIndex}, '${color}')}}'`;
+        template += ` ${attributeName}='{{(isStr ? color : color[${counter.colorIndex}]) || '${color}'}}'`;
         counter.colorIndex += 1;
       } else {
         template += ` ${attributeName}='${sub.$[attributeName]}'`;

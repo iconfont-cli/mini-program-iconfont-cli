@@ -9,9 +9,15 @@ Component({
   data: {
     quot: '"',
     svgSize: 18,
+    isStr: true,
   },
   didMount() {
     const size = this.props.size;
+    const color = this.props.color;
+
+    this.setData({
+      isStr: typeof color === 'string',
+    });
 
     if (size !== this.data.svgSize) {
       this.setData({
@@ -21,6 +27,13 @@ Component({
   },
   disUpdate(prevProps) {
     const size = this.props.size;
+    const color = this.props.color;
+
+    if (color !== prevProps.color) {
+      this.setData({
+        isStr: typeof color === 'string',
+      });
+    }
 
     if (size !== prevProps.size) {
       this.setData({

@@ -21,8 +21,6 @@ export const generateQqComponent = (data: XmlData, config: Config) => {
   const saveDir = path.resolve(config.save_dir);
   const fileName = basename(config.save_dir) || 'iconfont';
 
-  // FIXME: qq.qs is not found
-  // svgTemplates.push(`<qs src="./${fileName}.qs" module="helper" />\n`);
   mkdirp.sync(saveDir);
   glob.sync(path.join(saveDir, '*')).forEach((file) => fs.unlinkSync(file));
 
@@ -102,7 +100,7 @@ const addAttribute = (domName: string, sub: XmlData['svg']['symbol'][number]['pa
       if (attributeName === 'fill') {
         const color = sub.$[attributeName];
 
-        template += ` ${attributeName}='{{colorIsString ? color || '${color}' : color[${counter.colorIndex}] || '${color}'}}'`;
+        template += ` ${attributeName}='{{(isStr ? color : color[${counter.colorIndex}]) || '${color}'}}'`;
         counter.colorIndex += 1;
       } else {
         template += ` ${attributeName}='${sub.$[attributeName]}'`;

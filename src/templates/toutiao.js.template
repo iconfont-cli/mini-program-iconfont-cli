@@ -10,7 +10,7 @@ Component({
       value: '',
       observer: function(color) {
         this.setData({
-          colorIsString: typeof color === 'string',
+          isStr: typeof color === 'string',
         });
       }
     },
@@ -27,6 +27,6 @@ Component({
   data: {
     svgSize: #rpx-1:#size# / 750 * tt.getSystemInfoSync().windowWidth:##rpx-0:#size#:#,
     quot: '"',
-    colorIsString: false,
+    isStr: true,
   },
 });

@@ -7,20 +7,18 @@ import { XmlData } from './fetchXml';
 import { Config } from './getConfig';
 import { getTemplate } from './getTemplate';
 import {
-  replaceHexToRgb, replaceIsRpx,
+  replaceIsRpx,
   replaceNames,
   replaceSize,
 } from './replace';
 
 const ATTRIBUTE_FILL_MAP = ['path'];
 
-// Notice: toutiao program doesn't support wxs!!!
 export const generateToutiaoComponent = (data: XmlData, config: Config) => {
   const svgTemplates: string[] = [];
   const names: string[] = [];
   const saveDir = path.resolve(config.save_dir);
   const fileName = basename(config.save_dir) || 'iconfont';
-
 
   mkdirp.sync(saveDir);
   glob.sync(path.join(saveDir, '*')).forEach((file) => fs.unlinkSync(file));
@@ -99,9 +97,9 @@ const addAttribute = (domName: string, sub: XmlData['svg']['symbol'][number]['pa
 
     for (const attributeName of Object.keys(sub.$)) {
       if (attributeName === 'fill') {
-        const color = replaceHexToRgb(sub.$[attributeName]);
+        const color = sub.$[attributeName];
 
-        template += ` ${attributeName}='{{colorIsString ? color || '${color}' : color[${counter.colorIndex}] || '${color}'}}'`;
+        template += ` ${attributeName}='{{(isStr ? color : color[${counter.colorIndex}]) || '${color}'}}'`;
         counter.colorIndex += 1;
       } else {
         template += ` ${attributeName}='${sub.$[attributeName]}'`;
