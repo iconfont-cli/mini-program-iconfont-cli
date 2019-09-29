@@ -29,7 +29,7 @@ export const generateQqComponent = (data: XmlData, config: Config) => {
     const iconIdAfterTrim = config.trim_icon_prefix
       ? iconId.replace(
         new RegExp(`^${config.trim_icon_prefix}(.+?)$`),
-        (_, value) => value.replace(/^[-_]?(.+?)$/, '$1')
+        (_, value) => value.replace(/^[-_.=+#@!~*]+(.+?)$/, '$1')
       )
       : iconId;
 
