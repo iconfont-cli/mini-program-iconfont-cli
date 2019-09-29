@@ -100,7 +100,7 @@ const addAttribute = (domName: string, sub: XmlData['svg']['symbol'][number]['pa
       if (attributeName === 'fill') {
         const color = replaceHexToRgb(sub.$[attributeName]);
 
-        template += ` ${attributeName}='{{(isStr ? color : color[${counter.colorIndex}]) || '${color}'}}'`;
+        template += ` ${attributeName}='{{(isStr ? colors : colors[${counter.colorIndex}]) || '${color}'}}'`;
         counter.colorIndex += 1;
       } else {
         template += ` ${attributeName}='${sub.$[attributeName]}'`;
