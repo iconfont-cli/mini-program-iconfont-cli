@@ -131,6 +131,12 @@ npx iconfont-qq
 
 // 不同格式的颜色写法
 <iconfont name="alipay" color="{{['#333', 'rgb(50, 124, 39)']}}" />
+
+// 与文字对齐
+<view style="display: flex; alignItems: center;">
+  <text>Hello</text>
+  <iconfont name="alipay" />
+</view>
 ```
 
 # 更新图标
