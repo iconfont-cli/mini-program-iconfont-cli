@@ -112,7 +112,7 @@ npx iconfont-qq
 // 绝对路径
 {
   "usingComponents": {
-    "my-component": "/iconfont/iconfont"
+    "iconfont": "/iconfont/iconfont"
   }
 }
 ```
