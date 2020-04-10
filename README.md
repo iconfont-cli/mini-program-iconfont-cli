@@ -91,7 +91,7 @@ npx iconfont-qq
 
 -------
 
-在生成代码之前，你可以顺便参考[snapshots目录](https://github.com/fwh1990/mini-program-iconfont-cli/tree/master/snapshots)自动生成的快照文件。
+在生成代码之前，你可以顺便参考[snapshots目录](https://github.com/iconfont-cli/mini-program-iconfont-cli/tree/master/snapshots)自动生成的快照文件。
 
 
 # Step 4
