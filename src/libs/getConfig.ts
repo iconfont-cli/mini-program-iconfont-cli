@@ -2,6 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import colors from 'colors';
 import defaultConfig from './iconfont.json';
+import minimist from 'minimist';
 
 export interface Config {
   symbol_url: string;
@@ -18,10 +19,18 @@ export const getConfig = () => {
     return cacheConfig;
   }
 
-  const targetFile = path.resolve('iconfont.json');
+
+  const args = minimist<{ config: string }>(process.argv.slice(2));
+  let configFilePath = 'iconfont.json';
+
+  if (args.config && typeof args.config === 'string') {
+    configFilePath = args.config;
+  }
+
+  const targetFile = path.resolve(configFilePath);
 
   if (!fs.existsSync(targetFile)) {
-    console.warn(colors.red('File "iconfont.json" doesn\'t exist, did you forget to generate it?'));
+    console.warn(colors.red(`File "${configFilePath}" doesn't exist, did you forget to generate it?`));
     process.exit(1);
   }
 

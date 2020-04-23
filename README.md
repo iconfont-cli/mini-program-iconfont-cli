@@ -38,6 +38,9 @@ npm install mini-program-iconfont-cli --save-dev
 生成配置文件
 ```bash
 npx iconfont-init
+
+# 可传入配置输出路径
+# npx iconfont-init --output iconfont.json
 ```
 此时项目根目录会生成一个`iconfont.json`的文件，内容如下：
 ```json
@@ -72,6 +75,9 @@ npx iconfont-init
 # Step 3
 开始生成小程序标准组件
 ```bash
+# 可传入配置文件路径
+# npx iconfont-XXXX --config iconfont.json
+
 # 微信小程序
 npx iconfont-wechat
 
