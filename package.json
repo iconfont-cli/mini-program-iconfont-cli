@@ -11,6 +11,7 @@
     "alipay-program",
     "baidu-program",
     "toutiao-program",
+    "kuaishou-program",
     "qq-program"
   ],
   "repository": "git@github.com:fwh1990/mini-program-iconfont-cli.git",
@@ -23,6 +24,7 @@
     "iconfont-alipay": "./commands/createAlipayIcon.js",
     "iconfont-baidu": "./commands/createBaiduIcon.js",
     "iconfont-toutiao": "./commands/createToutiaoIcon.js",
+    "iconfont-kuaishou": "./commands/createKuaishouIcon.js",
     "iconfont-qq": "./commands/createQqIcon.js"
   },
   "dependencies": {
