@@ -1,0 +1,31 @@
+Component({
+  properties: {
+    // #names#
+    name: {
+      type: String,
+    },
+    // string | string[]
+    color: {
+      type: null,
+      observer: function(color) {
+        this.setData({
+          isStr: typeof color === 'string',
+        });
+      }
+    },
+    size: {
+      type: Number,
+      value: #size#,
+      observer: function(size) {
+        this.setData({
+          svgSize: #rpx-1:size / 750 * ks.getSystemInfoSync().windowWidth:##rpx-0:size:#,
+        });
+      },
+    },
+  },
+  data: {
+    svgSize: #rpx-1:#size# / 750 * ks.getSystemInfoSync().windowWidth:##rpx-0:#size#:#,
+    quot: '"',
+    isStr: true,
+  },
+});
