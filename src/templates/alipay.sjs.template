@@ -1,0 +1,5 @@
+const encode = (str)=> encodeURIComponent(str);
+
+export default {
+  encode
+};
