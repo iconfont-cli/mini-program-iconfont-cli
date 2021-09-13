@@ -5,7 +5,8 @@ const ATTRIBUTE_FILL_MAP = ['path'];
 
 
 export const generateCase = (data: XmlData['svg']['symbol'][number], config?: {
-  hexToRgb?:boolean
+  hexToRgb?:boolean,
+  encodeSvg?: boolean;
 }) => {
   let template = `<svg viewBox='${data.$.viewBox}' xmlns='http://www.w3.org/2000/svg' width='{{svgSize}}px' height='{{svgSize}}px'>`;
 
@@ -28,8 +29,15 @@ export const generateCase = (data: XmlData['svg']['symbol'][number], config?: {
   }
 
   template += `</svg>`;
+  if(config?.encodeSvg) {
+    /** 将 '%7B%7Bx%7D%7D'格式的文件 还原为 {{ x }}, 并encode*/
+    return encodeURIComponent(template).replace( /%7B%7B([\s\S]*?)%7D%7D/g,
+      (_, p1) => {
+        return `{{ encode.encode(${decodeURIComponent(p1)}) }}`;
+      })
+  }
 
-  return template.replace(/<|>/g, (matched) => encodeURI(matched));
+  return template.replace(/<|>/g, (matched) => encodeURIComponent(matched));
 };
 
 const addAttribute = (domName: string, sub: XmlData['svg']['symbol'][number]['path'][number], counter: { colorIndex: number },  config?: {
