@@ -1,3 +1,6 @@
+# 0.6.1
+修复部分平台图标展示失败问题
+
 # 0.6.0
 [feat] npx iconfont-init 增加 `--output` 选项，可传入配置输出路径，默认为 iconfont.json
 <br>
