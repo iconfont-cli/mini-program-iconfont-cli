@@ -57,12 +57,13 @@ const addAttribute = (domName: string, sub: XmlData['svg']['symbol'][number]['pa
         let color :string | undefined;
         if(config?.hexToRgb){
           color = replaceHexToRgb(sub.$[attributeName]);
+          template += `${attributeName}='{{(isStr ? colors : colors[${counter.colorIndex}]) || '${color}'}}'`;
+          counter.colorIndex += 1;
         }else {
           color = sub.$[attributeName]
+          template += ` ${attributeName}='{{color}}'`;
         }
 
-        template += ` ${attributeName}='{{(isStr ? colors : colors[${counter.colorIndex}]) || '${color}'}}'`;
-        counter.colorIndex += 1;
       } else {
         template += ` ${attributeName}='${sub.$[attributeName]}'`;
       }
