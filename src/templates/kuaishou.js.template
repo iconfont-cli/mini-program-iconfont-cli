@@ -25,6 +25,7 @@ Component({
     },
   },
   data: {
+    colors: '',
     svgSize: #rpx-1:#size# / 750 * ks.getSystemInfoSync().windowWidth:##rpx-0:#size#:#,
     quot: '"',
     isStr: true,

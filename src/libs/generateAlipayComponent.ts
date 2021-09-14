@@ -23,9 +23,6 @@ export const generateAlipayComponent = (data: XmlData, config: Config) => {
   mkdirp.sync(saveDir);
   glob.sync(path.join(saveDir, '*')).forEach((file) => fs.unlinkSync(file));
 
-  /** 阿里小程序axml插入函数的语法 */
-  svgTemplates.push(`<import-sjs name="encode" from="./${fileName}.sjs"/>`)
-
   data.svg.symbol.forEach((item) => {
     const iconId = item.$.id;
     const iconIdAfterTrim = config.trim_icon_prefix
@@ -38,7 +35,7 @@ export const generateAlipayComponent = (data: XmlData, config: Config) => {
     names.push(iconIdAfterTrim);
     svgTemplates.push(
       `<!--${iconIdAfterTrim}-->\n<view a:if="{{name === '${iconIdAfterTrim}'}}" style="background-image: url({{quot}}data:image/svg+xml, ${generateCase(item, {
-        encodeSvg: true
+        hexToRgb: true,
       })}{{quot}});` +
       ' width: {{svgSize}}px; height: {{svgSize}}px; " class="icon" />'
     );
@@ -47,7 +44,6 @@ export const generateAlipayComponent = (data: XmlData, config: Config) => {
   });
 
   fs.writeFileSync(path.join(saveDir, fileName + '.acss'), getTemplate('alipay.acss'));
-  fs.writeFileSync(path.join(saveDir, fileName + '.sjs'), getTemplate('alipay.sjs'));
   fs.writeFileSync(
     path.join(saveDir, fileName + '.axml'),
     svgTemplates.join('\n\n')
