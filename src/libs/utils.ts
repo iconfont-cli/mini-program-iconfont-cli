@@ -59,13 +59,12 @@ const addAttribute = (domName: string, sub: XmlData['svg']['symbol'][number]['pa
         if(config?.hexToRgb){
           color = replaceHexToRgb(sub.$[attributeName]);
           keyword = 'colors'
-          counter.colorIndex += 1;
         }else {
           keyword = 'color'
           color = sub.$[attributeName]
         }
         template += ` ${attributeName}='{{(isStr ? ${keyword} : ${keyword}[${counter.colorIndex}]) || '${color}'}}'`;
-
+        counter.colorIndex += 1;
       } else {
         template += ` ${attributeName}='${sub.$[attributeName]}'`;
       }
