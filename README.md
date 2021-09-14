@@ -5,18 +5,23 @@
 ![](https://github.com/fwh1990/mini-program-iconfont-cli/blob/master/images/multi-color-icon.jpg?raw=true)
 
 # 支持平台：
->- 微信小程序
->- 支付宝小程序
->- 百度小程序
->- 头条小程序（字节跳动）
->- 快手小程序
->- QQ小程序
+- 微信小程序
+- 支付宝小程序
+- 百度小程序
+- 头条小程序（字节跳动）
+- 快手小程序
+- QQ小程序
+- ...
 
 # 特性
 1、纯组件
+<br>
 2、不依赖字体文件
+<br>
 3、支持px和rpx两种格式
+<br>
 4、原样渲染多色彩图标
+<br>
 5、图标颜色可定制
 
 # Step 1
@@ -165,14 +170,6 @@ npx iconfont-kuaishou
 # QQ小程序
 npx iconfont-qq
 ```
-
-# 扩展
-| 平台 | 仓库 |
-|-----|-----|
-|Taro|[taro-iconfont-cli](https://github.com/iconfont-cli/taro-iconfont-cli)|
-|React Native|[react-native-iconfont-cli](https://github.com/iconfont-cli/react-native-iconfont-cli)|
-|React H5|[react-iconfont-cli](https://github.com/iconfont-cli/react-iconfont-cli)|
-|Flutter|[flutter-iconfont-cli](https://github.com/iconfont-cli/flutter-iconfont-cli)|
 
 --------
 
