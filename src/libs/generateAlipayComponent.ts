@@ -24,7 +24,7 @@ export const generateAlipayComponent = (data: XmlData, config: Config) => {
   glob.sync(path.join(saveDir, '*')).forEach((file) => fs.unlinkSync(file));
 
   /** 阿里小程序axml插入函数的语法 */
-  svgTemplates.push(`<import-sjs name="encode" from="./alipay.sjs"/>`)
+  svgTemplates.push(`<import-sjs name="encode" from="./${fileName}.sjs"/>`)
 
   data.svg.symbol.forEach((item) => {
     const iconId = item.$.id;
