@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 Component({
   properties: {
     // alipay | user | setup
