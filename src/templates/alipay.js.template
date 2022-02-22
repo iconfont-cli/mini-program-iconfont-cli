@@ -27,7 +27,7 @@ Component({
       });
     }
   },
-  disUpdate(prevProps) {
+  didUpdate(prevProps) {
     const size = this.props.size;
     const color = this.props.color;
 
